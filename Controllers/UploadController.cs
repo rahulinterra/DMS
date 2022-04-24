@@ -42,7 +42,7 @@ namespace Document_Saver.Controllers
             }
             return View(Documents.ToList());
            
-            return View(objectDocumentlist);
+            return View(_DB.Document.Where(x=>x.Is_Active==true).ToList());
         }
 
 
@@ -126,19 +126,44 @@ namespace Document_Saver.Controllers
             }
             return View();
         }
-        [HttpPost]
-        public IActionResult ViewDocumnet(Documents obj)
+       /* [HttpGet]
+
+        public ActionResult Show()
+
         {
-            string filename= Request.Form["fileToView"];
-            //string OutputDirectory = ("/");
-            string filePath= Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Files");
-            obj.File_Name= filePath;
-            return View(filePath);
+
+            string[] filePaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Files");
+
+            List<Documents> files = new List<Documents>();
+
+            foreach (string filePath in filePaths)
+
+            {
+
+                files.Add(new Documents { File_Name = Path.GetFileName(filePath) });
+
+            }
+
+            return View(files);
 
         }
-      
+*/
+
+        public FileResult ViewFile(string fileName)
+
+        {
+
+            string filepath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Files");
+
+            byte[] pdfByte = System.IO.File.ReadAllBytes(filepath);
+
+            return File(pdfByte, "application/pdf");
+
+        }
+
         public IActionResult Delete(int? Document_Id)
         {
+            bool result = false;
             if (Document_Id == null || Document_Id == 0)
             {
                 return NotFound();
@@ -158,6 +183,7 @@ namespace Document_Saver.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeletePost(int? Document_Id)
         {
+            bool result = false;
             var obj = _DB.Document.Find(Document_Id);
             if (obj == null)
             {
@@ -169,9 +195,15 @@ namespace Document_Saver.Controllers
             {
                 System.IO.File.Delete(oldfile);
             }
-            _DB.Document.Remove(obj);
-            _DB.SaveChanges();
-            return RedirectToAction("Index");
+            if (upload != null)
+            {
+                obj.Is_Active = false;
+                _DB.Document.Remove(obj);
+                _DB.SaveChanges();
+                result = true;
+            }
+                return RedirectToAction("Index");
+            
 
 
 

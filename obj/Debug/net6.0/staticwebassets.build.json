@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lMub0iA+Mz7DvEHhvJPpiDeW3oBxR6/9l69aHzBoYBw=",
+  "Hash": "QpDyq3Bq1RbLwhgEslo6A5RSCF8nnWPS0MFysuJv8Y4=",
   "Source": "Document_Saver",
   "BasePath": "_content/Document_Saver",
   "Mode": "Default",
@@ -646,12 +646,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\Rahul Sharma\\Documents\\GitHub\\Document_Saver\\wwwroot\\Files\\02fa2395-8df1-4a0e-9afb-d228bbe1f8e9.cs",
+      "Identity": "C:\\Users\\Rahul Sharma\\Documents\\GitHub\\Document_Saver\\wwwroot\\Files\\55e7915f-d23c-4ed8-bcdf-7877157af674.docx",
       "SourceId": "Document_Saver",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Rahul Sharma\\Documents\\GitHub\\Document_Saver\\wwwroot\\",
       "BasePath": "_content/Document_Saver",
-      "RelativePath": "Files/02fa2395-8df1-4a0e-9afb-d228bbe1f8e9.cs",
+      "RelativePath": "Files/55e7915f-d23c-4ed8-bcdf-7877157af674.docx",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -660,7 +660,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Files\\02fa2395-8df1-4a0e-9afb-d228bbe1f8e9.cs"
+      "OriginalItemSpec": "wwwroot\\Files\\55e7915f-d23c-4ed8-bcdf-7877157af674.docx"
+    },
+    {
+      "Identity": "C:\\Users\\Rahul Sharma\\Documents\\GitHub\\Document_Saver\\wwwroot\\Files\\c687463e-ada3-4e29-b6c6-76c2fd1b3de7.docx",
+      "SourceId": "Document_Saver",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Rahul Sharma\\Documents\\GitHub\\Document_Saver\\wwwroot\\",
+      "BasePath": "_content/Document_Saver",
+      "RelativePath": "Files/c687463e-ada3-4e29-b6c6-76c2fd1b3de7.docx",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Files\\c687463e-ada3-4e29-b6c6-76c2fd1b3de7.docx"
     },
     {
       "Identity": "C:\\Users\\Rahul Sharma\\Documents\\GitHub\\Document_Saver\\wwwroot\\js\\Dashboard.js",
