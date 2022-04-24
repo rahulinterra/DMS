@@ -1,0 +1,200 @@
+﻿
+<link  href="~/css/Projects.css" rel="stylesheet"/>
+<script src = "~/js/Project.js"></script>
+<!doctype html>
+<html lang="en" dir = "ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Documents</title>
+  <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link  href="~/css/Documents1.css" rel="stylesheet"/>
+		@*<script src = "https://kit.fontawesome.com/a076d05399.js"></script>*@
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="~/css/Documents1.css">
+</head>
+@{
+    ViewData["Title"] = "Index";
+    var objectuserlist = ViewData["DocumentList"] as IEnumerable<Documents>;
+}
+<hr />
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success alert-dismissible" style="margin-top:20px">
+        @ViewBag.Message
+    </div>
+}
+
+
+<div style="margin-left:876px;" class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Gallery View')">Gallery View</button>
+  <button class="tablinks" onclick="openCity(event, 'Table View')">Table View</button>
+</div>
+<div style="margin-top:53px;" id="Gallery View" class="tabcontent">
+ <div class="dropdown">  
+<button style = "margin-left:170px;margin-bottom:-160px; margin-right:10px;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Filter By
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="#">Project</a></li>
+    <li><a class="dropdown-item" href="#">User</a></li>
+    <li><a class="dropdown-item" href="#">Document Type</a></li>
+	<li><a class="dropdown-item" href="#">Document Name</a></li>
+	<li><a class="dropdown-item" href="#">Date Between</a></li>
+  </ul>
+</div>
+
+
+@*Sort by dropdown*@
+
+
+<div class="dropdown">  
+<button style = "margin-bottom:-112px;margin-left:42px;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+    Sort By
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="#">Ascending</a></li>
+    <li><a class="dropdown-item" href="#">@Html.ActionLink("Descending", "Index", new { Sorting_Order = ViewBag.SortingDocumentName })</a></li>
+  </ul>
+</div>
+
+
+
+
+@*search bar*@
+
+<div style = "margin-top:28px; margin-left:300px; width:40%;"class="form-outline">
+    
+    @using (Html.BeginForm("Index", "Upload", FormMethod.Get))  
+{  
+    <p>  
+      @Html.TextBox("Search_Data")  
+        <input type="submit" value="Find" />  
+    </p>  
+}  
+</div>
+<br />
+
+
+    
+     @foreach (var obj in Model)
+   
+  {
+     
+ <div class="row">
+ <div class="column" style="background-color:#aaa;">
+<div class="wrapper">
+
+	<div class="cards_wrap">
+		<div class="card_item">
+			<div class="card_inner">
+				<div class = "box">
+		    <a href = "https://www.google.co.in/"> <img src="~/css/document2.jpg"></a>
+			 </div>
+				<div class="doc_name">@obj.Document_Name</div>
+				<div class="project_name">@obj.Document_Name</div>
+				<div class="User_name">@obj.Document_Name</div>
+			
+
+	
+<div style = "margin-top:-28px; margin-left:175px;  font-size: 1.8em;">
+<a  href=""> <i class ="bi bi-file-earmark-arrow-down"></i> </a>
+</div>
+</div>
+<div style = "margin-top:-45px; margin-left:160px; font-size:1.8em;">
+<a  href="https://www.google.co.in/"><i class="bi bi-share"></i> </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+}
+ </div>
+  <div style ="margin-top:-53px;" id="Table View" class="tabcontent">
+
+@*<div class="dropdown">  
+<button style = "margin-left:170px;margin-bottom:-160px; margin-right:10px;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Filter By
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="#">Project</a></li>
+    <li><a class="dropdown-item" href="#">User</a></li>
+    <li><a class="dropdown-item" href="#">Document Type</a></li>
+	<li><a class="dropdown-item" href="#">Document Name</a></li>
+	<li><a class="dropdown-item" href="#">Date Between</a></li>
+  </ul>
+</div>
+*@
+
+@*Sort by dropdown*@
+
+
+<div class="dropdown">  
+<button style = "margin-bottom:-112px;margin-left:42px;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+    Sort By
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="#">Ascending</a></li>
+    <li><a class="dropdown-item" href="#">@Html.ActionLink("Descending", "Index", new { Sorting_Order = ViewBag.SortingDocumentName })</a></li>
+  </ul>
+</div>
+
+
+
+
+@*search bar*@
+
+<div style = "margin-top:28px; margin-left:300px; width:40%;"class="form-outline">
+	
+  <input type="search" id="form1" class="form-control" placeholder="Search" aria-label="Search" />
+
+</div>
+      <br />
+      <br />
+
+      <br />
+      <br />
+      <br />
+      
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Document_Id</th>
+                <th> Document_Name  </th>
+                <th>Download</th>
+                <th>View</th>
+                <th>Delete</th>
+          
+                
+               
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <th>@obj.Document_Id</th>
+                   
+                    
+                    <td>@obj.Document_Name</td>
+                  
+              
+             
+                 <td>
+                       @Html.ActionLink("Download", "Download", new { fileName = obj.File_Name })
+                   </td>
+                      
+                   <td width="10%">
+                       @Html.ActionLink("View", "ViewDocument", new { fileName = obj.File_Name })
+                       </td>
+                    <td>
+                     <a asp-action="Delete" asp-controller="Upload" asp-route-Document_Id="@obj.Document_Id" class="btn btn-danger mx-2">Delete<i class="bi bi-trash"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>

@@ -1,0 +1,137 @@
+﻿@*@model Info.Models*@
+@{
+    ViewData["Title"] = "Index";
+    var objectProjectlist = ViewData["ProjectList"] as IEnumerable<ProjectDetails>;
+}
+
+<div class="cotainer  p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Project List</h2>
+        </div>
+        <div class="col-6 text-end">
+            
+            <a asp-controller="ProjectDetails" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> &nbsp;
+                Create new Project</a>
+        </div>
+    </div>
+    <br /> <br />
+    </div>
+    @*Filter by dropdown*@
+ <div  class="d-flex w-100">
+     <div style="width: 30%" class="d-flex ">
+    <div class="dropdown">  
+    <button  class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Filter By
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#">Project</a></li>
+        <li><a class="dropdown-item" href="#">User</a></li>
+        <li><a class="dropdown-item" href="#">Document Type</a></li>
+          <li><a class="dropdown-item" href="#">Document Name</a></li>
+          <li><a class="dropdown-item" href="#">Date Between</a></li>
+      </ul>
+    </div>&nbsp;
+
+    
+@*Sort by dropdown*@
+
+
+    <div class="dropdown">  
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+            Sort By
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Ascending</a></li>
+            <li><a class="dropdown-item" href="#">Descending</a></li>
+          </ul>
+    </div>
+    </div>
+
+ @*   <div class="input-group">
+      <div class="form-outline">
+        <input type="search" id="form1" class="form-control" />
+        <label class="form-label" for="form1">Search</label>
+      </div>
+      <button type="button" class="btn btn-primary">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>*@
+    <div style = " width:40%;"class="form-outline">
+      
+      <input type="search" id="form1" class="form-control" placeholder="Search" aria-label="Search" />
+
+    </div>
+
+</div>
+
+
+
+    <div style="margin-left: 980px"class="view d-flex">
+        <a asp-controller="ProjectDetails" asp-action="Projects" type="button" class="btb btn-dark">Gallery</a>&nbsp;
+        <button asp-controller="ProjectDetails" asp-action="Table" type="button" class="btb btn-dark">Table</button>
+    </div>
+
+<table class="table table-bordered table-striped" style="width:100%":>
+
+<thead>
+    <tr>
+        <th>
+            Project Id
+            
+        </th>
+        <th>
+            Project Name
+        </th>
+        <th>
+            Project Description
+        </th>
+        <th>
+            Created By
+        </th>
+        <th>
+            Updated By
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model )
+        {
+            <tr>
+                <td width="50%">
+                    @obj.Project_Id
+                </td>
+                <td width="30%">
+                    @obj.Project_Name
+
+                </td>
+                <td width="30%">
+                    @obj.Project_Description
+
+                </td>
+                <td width="30%">
+                    @obj.Created_By
+
+                </td>
+                <td width="30%">
+                    @obj.Updated_By
+
+                </td>
+     
+                      
+                <td>
+                    <div class=w-75 btn-group" role="group">
+                        <a asp-action="Edit" asp-controller="ProjectDetails" asp-route-Id="@obj.Project_Id" class="btn btn-primary mx-2"><i class="bi bi-pencil-square"></i></a>
+
+                    </div>
+                    <div class=w-75 btn-group" role="group">
+                        <a asp-action="Delete" asp-controller="ProjectDetails" asp-route-Id="@obj.Project_Id" class="btn btn-danger mx-2"><i class="bi bi-trash"></i></a>
+
+                    </div>
+                </td>
+            </tr>
+            
+        }
+    </tbody>
+   </table>
