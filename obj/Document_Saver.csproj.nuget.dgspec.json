@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Rahul Sharma\\Documents\\GitHub\\Document_Saver\\Document_Saver.csproj": {}
+    "C:\\Users\\Rahul Sharma\\Documents\\GitHub\\DMS\\Document_Saver.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Rahul Sharma\\Documents\\GitHub\\Document_Saver\\Document_Saver.csproj": {
+    "C:\\Users\\Rahul Sharma\\Documents\\GitHub\\DMS\\Document_Saver.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Rahul Sharma\\Documents\\GitHub\\Document_Saver\\Document_Saver.csproj",
+        "projectUniqueName": "C:\\Users\\Rahul Sharma\\Documents\\GitHub\\DMS\\Document_Saver.csproj",
         "projectName": "Document_Saver",
-        "projectPath": "C:\\Users\\Rahul Sharma\\Documents\\GitHub\\Document_Saver\\Document_Saver.csproj",
+        "projectPath": "C:\\Users\\Rahul Sharma\\Documents\\GitHub\\DMS\\Document_Saver.csproj",
         "packagesPath": "C:\\Users\\Rahul Sharma\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Rahul Sharma\\Documents\\GitHub\\Document_Saver\\obj\\",
+        "outputPath": "C:\\Users\\Rahul Sharma\\Documents\\GitHub\\DMS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Rahul Sharma\\AppData\\Roaming\\NuGet\\NuGet.Config",

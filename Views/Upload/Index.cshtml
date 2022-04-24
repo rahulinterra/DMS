@@ -1,8 +1,9 @@
-﻿<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-<script src="~/Scripts/bootstrap.min.js"></script>
+﻿
 <link  href="~/css/Projects.css" rel="stylesheet"/>
 <script src = "~/js/Project.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.min.js"></script>
 <!doctype html>
 <html lang="en" dir = "ltr">
 <head>
@@ -177,7 +178,7 @@
         <tbody>
             @foreach (var obj in Model)
             {
-                <tr>
+                <tr id="row_@obj.Document_Id">
                     <th>@obj.Document_Id</th>
                    
                     
@@ -195,86 +196,18 @@
                        <td width="20%">
                            <a href="#" class="btn btn-danger" onclick="ConfirmDelete(@obj.Document_Id)"><i class="glyphicon glyphicon-trash"></i> </a>
                            </td>
-                   @* <td>
-                        <td>
-                            <input type="button" value="Delete" class="btn btn-danger" onclick="deleteConfirm('@obj.Document_Name')" />
-                        </td>
+                    <td>
+                       
                         
-                     <a  asp-controller="Upload" asp-action="Index" onclick="DeleteConfirmation()" asp-route-Document_Id="@obj.Document_Id" class="btn btn-danger mx-2">Delete<i class="bi bi-trash"></i></a>
-                    </td>*@
+                     <a  asp-controller="Upload" asp-action="Delete" onclick="DeleteConfirmation()" asp-route-Document_Id="@obj.Document_Id" class="btn btn-danger mx-2">Delete<i class="bi bi-trash"></i></a>
+                    </td>
                 </tr>
             }
         </tbody>
     </table>
     </div>
 
-    @*<script>
-        function DeleteConfirmation()
-        {
-         var x = confirm("Are you sure you want to delete?");
-         if (x)
-             return true;
-        else
-             return false;
-        }
-    </script>*@
-
-    <!--bootstra pop up confirmation dialog-->
-@*<div class="modal fade" id="delete-conformation" tabindex="-1" role="dialog" aria-labelledby="deleteconformation">
-    <div class="modal-dialog" style="width:501px !important;margin:0 auto;">
-        <div class="modal-content">
-            <div class="modal-header" style="background:#d9534f;color:white;">
-                <h4 class="modal-title" id="delete-conformation">
-                    Delete Confirmation
-                </h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <span>
-                                Are you sure you want to delete?
-                            </span>
-                            <strong id="deletedValueName">
-                            </strong>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button type="button" asp-controller="Upload" asp-action="Delete" class="btn btn-danger" value="Delete" onclick="deleteData()" />
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-@section Scripts{
-    <script type="text/javascript">
-        //this is only display bootstrap modal pop up dialog
-        var deleteConfirm = function (val) {
-            $('#deletedValueName').text(val);
-            $('#delete-conformation').modal('show');
-        }
-        //call this function after click on confirm delete button
-        var deleteData = function () {
-        $('#divLoading').show();
-        var id = $('#id').val();
-        $.ajax({
-            type: "POST",
-            url: '@Url.Action("Delete","Upload")',
-            data:{id: id},
-            success: function (result) {
-               $("#delete-conformation").modal('hide');
-            },
-            error: function () {
-                $("#delete-conformation").modal('hide');
-            }
-        });
-       }
-    </script>
-}*@
+    
 
     <div class="modal fade" id="myModal">
         <div class="modal-dialog">
@@ -291,7 +224,7 @@
                 </div>
                 <div class="modal-footer">
                     <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
-                    <a href="#" class="btn btn-success" onclick="DeleteEmployee()">Confirm</a>
+                    <a href="#" class="btn btn-success" onclick="Delete()">Confirm</a>
                 </div>
 
             </div>
@@ -301,7 +234,7 @@
     </div>
 
 
-    @*hidden field for storing current employeeId*@
+    
     <input type="hidden" id="hiddenDocument_Id" />
 
 
@@ -325,9 +258,9 @@
 
             $.ajax({
 
-                type: "POST",
+                type: "GET",
                 url: "/Upload/Delete",
-                data: { Id: DocId },
+                data: { Document_Id: DocId },
                 success: function (result) {
                    
                     $("#myModal").modal("hide");
